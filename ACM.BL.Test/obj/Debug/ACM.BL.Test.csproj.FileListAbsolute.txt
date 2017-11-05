@@ -1,0 +1,8 @@
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\bin\Debug\ACM.BL.Test.dll
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\bin\Debug\ACM.BL.Test.pdb
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\bin\Debug\ACM.BL.dll
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\bin\Debug\ACM.BL.pdb
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\obj\Debug\ACM.BL.Test.csprojResolveAssemblyReference.cache
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\obj\Debug\ACM.BL.Test.dll
+C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL.Test\obj\Debug\ACM.BL.Test.pdb

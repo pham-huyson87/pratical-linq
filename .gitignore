@@ -1,1 +1,11 @@
 Debug
+/.vs/ACM/v14/*.suo
+/ACM.BL.Test/bin/Debug
+/ACM.BL.Test/obj/Debug
+/ACM.BL/bin/Debug
+/ACM.BL/obj/Debug
+/ACM.Library/bin/Debug
+/ACM.Library/obj/Debug
+/ACM.Library.Test/bin/Debug
+/ACM.Library.Test/obj/Debug
+/TestResults

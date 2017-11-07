@@ -3,3 +3,8 @@ C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-
 C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL\obj\Debug\ACM.BL.csprojResolveAssemblyReference.cache
 C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL\obj\Debug\ACM.BL.dll
 C:\Users\phamh\Downloads\Practical LINQ\practical-linq\2-practical-linq-m2-linq-by-example-exercise-files\ACMExample\ACM.BL\obj\Debug\ACM.BL.pdb
+C:\Users\phamh\OneDrive\Documents\GitHub\pratical-linq\ACM.BL\bin\Debug\ACM.BL.dll
+C:\Users\phamh\OneDrive\Documents\GitHub\pratical-linq\ACM.BL\bin\Debug\ACM.BL.pdb
+C:\Users\phamh\OneDrive\Documents\GitHub\pratical-linq\ACM.BL\obj\Debug\ACM.BL.csprojResolveAssemblyReference.cache
+C:\Users\phamh\OneDrive\Documents\GitHub\pratical-linq\ACM.BL\obj\Debug\ACM.BL.dll
+C:\Users\phamh\OneDrive\Documents\GitHub\pratical-linq\ACM.BL\obj\Debug\ACM.BL.pdb

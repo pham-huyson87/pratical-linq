@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ACM.BL
@@ -21,16 +22,42 @@ namespace ACM.BL
 
 
             // LINQ 
-            //      use Deferred Execution 
+            //      - use Deferred Execution
+            //      - have 2 syntax : Query Syntax and Method Syntax
+            //      - the CLR use Query Syntax
+            //      - LINQ is the extension methods of IEnumerable
 
+            // Function Delagate
+            //      - Func<X, Y> : Function that take X Type as parameter and return Y Type
+
+            // Lambda Expression
+            //      - Inline anonymous function (define directly and have no name)
+            //          + No parameter :            () => true
+            //          + Multiple parameters :     (x, y) => true
+
+
+            // LINQ Query Syntax
 
             // 1. The query is defined here
-            var query = from c in customerList
-                        where c.CustomerId == customerId
-                        select c;
+            //var query = from c in customerList
+            //            where c.CustomerId == customerId
+            //            select c;
 
             // 2. The query executed here
-            foundCustomer = query.First(); 
+            //foundCustomer = query.First(); 
+
+
+            // LINQ Method Syntax
+
+            // Single line expression
+            //foundCustomer = customerList.FirstOrDefault(c =>                     // Parameter
+            //                                c.CustomerId == customerId);         // Body of the function
+
+            // Multiple line expression
+            foundCustomer = customerList.FirstOrDefault(c => {
+                Debug.Write(c.LastName);
+                return c.CustomerId == customerId;
+            });
 
             return foundCustomer;
         }

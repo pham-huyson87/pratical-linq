@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ACM.BL
 {
@@ -8,14 +9,28 @@ namespace ACM.BL
         {
             Customer foundCustomer = null;
 
-            foreach (var c in customerList)
-            {
-                if (c.CustomerId == customerId)
-                {
-                    foundCustomer = c;
-                    break;
-                }
-            }
+            // Original
+            //foreach (var c in customerList)
+            //{
+            //    if (c.CustomerId == customerId)
+            //    {
+            //        foundCustomer = c;
+            //        break;
+            //    }
+            //}
+
+
+            // LINQ 
+            //      use Deferred Execution 
+
+
+            // 1. The query is defined here
+            var query = from c in customerList
+                        where c.CustomerId == customerId
+                        select c;
+
+            // 2. The query executed here
+            foundCustomer = query.First(); 
 
             return foundCustomer;
         }

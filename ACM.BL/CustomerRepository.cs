@@ -27,7 +27,7 @@ namespace ACM.BL
             //      - the CLR use Query Syntax
             //      - LINQ is the extension methods of IEnumerable
 
-            // Function Delagate
+            // Function Delegate
             //      - Func<X, Y> : Function that take X Type as parameter and return Y Type
 
             // Lambda Expression
@@ -90,6 +90,42 @@ namespace ACM.BL
                             EmailAddress = "rc@hob.me",
                             CustomerTypeId=2}};
             return custList;
+        }
+
+        public IEnumerable<Customer> SortByName(List<Customer> customerList)
+        {
+            return customerList
+                        .OrderBy(c => c.LastName)
+                        .ThenBy(c => c.FirstName);
+        }
+
+        public IEnumerable<Customer> SortByNameInReverse(List<Customer> customerList)
+        {
+            return customerList
+                        .OrderByDescending(c => c.LastName)
+                        .ThenByDescending(c => c.FirstName);
+        }
+
+        public IEnumerable<Customer> SortByNameInReverse2(List<Customer> customerList)
+        {
+            return SortByName(customerList).Reverse();
+        }
+
+        public IEnumerable<Customer> SortByType(List<Customer> customerList)
+        {
+            return customerList.OrderBy(c => c.CustomerTypeId); // The property CustomerTypeId have null values.
+                                                                // The null will be at the top by default from a sort.
+
+        }
+
+        public IEnumerable<Customer> SortByTypeNullAtBottom(List<Customer> customerList)
+        {
+            // Put null values at the bottom.
+            return customerList
+                        .OrderByDescending(c => c.CustomerTypeId.HasValue)      // Put the null values at the bottom
+                        .ThenBy(c => c.CustomerTypeId);                         // Sort the rest in ASC order
+
+            // So the null is the lowest value.
         }
     }
 }

@@ -101,5 +101,81 @@ namespace ACM.Library.Test
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void IntersectSequencesTest()
+        {
+            // Arrange
+            Builder builder = new Builder();
+
+            // Act
+            var result = builder.IntersectSequences();
+
+            // Analyze
+            foreach (var item in result)
+            {
+                TestContext.WriteLine(item.ToString());
+            }
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void ExceptSequencesTest()
+        {
+            // Arrange
+            Builder builder = new Builder();
+
+            // Act
+            var result = builder.ExceptSequences();
+
+            // Analyze
+            foreach (var item in result)
+            {
+                TestContext.WriteLine(item.ToString());
+            }
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void ConcatSequencesTest()
+        {
+            // Arrange
+            Builder builder = new Builder();
+
+            // Act
+            var result = builder.ConcatSequences();
+
+            // Analyze
+            foreach (var item in result)
+            {
+                TestContext.WriteLine(item.ToString());
+            }
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void UnionSequencesTest()
+        {
+            // Arrange
+            Builder builder = new Builder();
+
+            // Act
+            var result = builder.UnionSequences();
+
+            // Analyze
+            foreach (var item in result)
+            {
+                TestContext.WriteLine(item.ToString());
+            }
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }

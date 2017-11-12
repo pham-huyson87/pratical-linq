@@ -29,3 +29,4 @@ Debug
 /ACM.Library.Test/obj/Debug/*.dll
 /ACM.Library.Test/obj/Debug/*.pdb
 /ACM.Library.Test/obj/Debug/*.txt
+.vs/ACM/v14/.suo

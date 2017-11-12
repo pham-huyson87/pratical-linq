@@ -118,7 +118,6 @@ namespace ACM.BL.Test
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(null, result.Last().CustomerTypeId);
-
         }
     }
 }

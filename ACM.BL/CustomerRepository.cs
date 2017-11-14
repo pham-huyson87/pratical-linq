@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -131,6 +132,48 @@ namespace ACM.BL
                         .ThenBy(c => c.CustomerTypeId);                         // Sort the rest in ASC order
 
             // So the null is the lowest value.
+        }
+
+        public IEnumerable<string> GetNames(List<Customer> customerList)
+        {
+            var query = customerList.Select(c => c.LastName + ", " + c.FirstName);
+            return query;
+        }
+
+        public dynamic GetNamesAndEmails(List<Customer> customerList)   // dynamic bypass type checking
+        {
+            var query = customerList.Select(c => new {                  // Anonymous Type declaration
+                Name = c.LastName + ", " + c.FirstName,
+                c.EmailAddress                                          // equivalent to
+                                                                        //      EmailAddress = c.EmailAddress
+            });
+
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Name + ":" + item.EmailAddress);
+            }
+
+            return query;
+        }
+
+        public dynamic GetNamesAndTypes(List<Customer> customerList, List<CustomerType> customerTypeList)
+        {
+            var query = customerList                                                        // Outer List
+                                .Join(customerTypeList,                                     // Inner List
+                                            c => c.CustomerTypeId,                          // Outer key selector
+                                            ct => ct.CustomerTypeId,                        // Inner key selector
+                                            (c, ct) => new                                  
+                                            {                                               // Projection
+                                                Name = c.LastName + ", " + c.FirstName,
+                                                CustomerTypeName = ct.TypeName
+                                            });
+
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Name + " " + item.CustomerTypeName);
+            }
+
+            return query;
         }
     }
 }

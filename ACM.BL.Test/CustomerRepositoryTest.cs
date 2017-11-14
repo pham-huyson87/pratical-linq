@@ -119,5 +119,49 @@ namespace ACM.BL.Test
             Assert.IsNotNull(result);
             Assert.AreEqual(null, result.Last().CustomerTypeId);
         }
+
+        [TestMethod]
+        public void GetNamesTest()
+        {
+            // Arrange
+            CustomerRepository customerRepository = new CustomerRepository();
+            var customerList = customerRepository.Retrieve();
+
+            // Act
+            var query = customerRepository.GetNames(customerList);
+
+            // Analyze
+            foreach (var item in query)
+            {
+                TestContext.WriteLine(item);
+            }
+
+            // Assert
+            Assert.IsNotNull(query);
+        }
+
+        [TestMethod]
+        public void GetNamesAndEmailsTest()
+        {
+            // Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+
+            // Act
+            var query = repository.GetNamesAndEmails(customerList);
+        }
+
+        [TestMethod]
+        public void GetNamesAndTypesTest()
+        {
+            // Arrange
+            CustomerRepository customerRepository = new CustomerRepository();
+            CustomerTypeRepository customerTypeRepository = new CustomerTypeRepository();
+            var customerList = customerRepository.Retrieve();
+            var customerTypeList = customerTypeRepository.Retrieve();
+
+            // Act
+            var query = customerRepository.GetNamesAndTypes(customerList, customerTypeList);
+        }
     }
 }

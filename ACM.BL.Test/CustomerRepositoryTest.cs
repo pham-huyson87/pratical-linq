@@ -163,5 +163,68 @@ namespace ACM.BL.Test
             // Act
             var query = customerRepository.GetNamesAndTypes(customerList, customerTypeList);
         }
+
+        [TestMethod]
+        public void GetOverdueCustomers()
+        {
+            // Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+
+            // Act
+            var query = repository.GetOverdueCustomers(customerList);
+
+            // Analyze
+            foreach (var parent in query)
+            {
+                foreach (var child in parent)
+                {
+                    TestContext.WriteLine(child.DueDate.ToString());
+                }
+            }
+
+            // Assert
+            Assert.IsNotNull(query);
+        }
+
+        [TestMethod]
+        public void  GetOverdueCustomers2Test()
+        {
+            // Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+
+            // Act
+            var query = repository.GetOverdueCustomers2(customerList);
+
+            // Analyze
+            foreach (var invoice in query)
+            {
+                TestContext.WriteLine(invoice.DueDate.ToString());
+            }
+
+            // Assert
+            Assert.IsNotNull(query);
+        }
+
+        [TestMethod]
+        public void GetOverdueCustomersFinalTest()
+        {
+            // Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+
+            // Act
+            var query = repository.GetOverdueCustomersFinal(customerList);
+
+            // Analyze
+            foreach (var customer in query)
+            {
+                TestContext.WriteLine(customer.LastName + ", " + customer.FirstName);
+            }
+
+            // Assert
+            Assert.IsNotNull(query);
+        }
     }
 }

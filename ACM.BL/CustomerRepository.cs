@@ -65,31 +65,39 @@ namespace ACM.BL
 
         public List<Customer> Retrieve()
         {
-            List<Customer> custList = new List<Customer>
-                    {new Customer() 
+            InvoiceRepository invoiceRepository = new InvoiceRepository();
+
+            List<Customer> custList = new List<Customer> {
+                    new Customer() 
                           { CustomerId = 1, 
                             FirstName="Frodo",
                             LastName = "Baggins",
                             EmailAddress = "fb@hob.me",
-                            CustomerTypeId=1},
+                            CustomerTypeId=1,
+                            InvoiceList = invoiceRepository.Retrieve(1)},
                     new Customer() 
                           { CustomerId = 2, 
                             FirstName="Bilbo",
                             LastName = "Baggins",
                             EmailAddress = "bb@hob.me",
-                            CustomerTypeId=null},
+                            CustomerTypeId=null,
+                            InvoiceList = invoiceRepository.Retrieve(2)},
                     new Customer() 
                           { CustomerId = 3, 
                             FirstName="Samwise",
                             LastName = "Gamgee",
                             EmailAddress = "sg@hob.me",
-                            CustomerTypeId=1},
+                            CustomerTypeId=1,
+                            InvoiceList = invoiceRepository.Retrieve(3)},
                     new Customer() 
                           { CustomerId = 4, 
                             FirstName="Rosie",
                             LastName = "Cotton",
                             EmailAddress = "rc@hob.me",
-                            CustomerTypeId=2}};
+                            CustomerTypeId=2,
+                            InvoiceList = invoiceRepository.Retrieve(4)
+                    }
+                };
             return custList;
         }
 
@@ -173,6 +181,38 @@ namespace ACM.BL
                 Console.WriteLine(item.Name + " " + item.CustomerTypeName);
             }
 
+            return query;
+        }
+
+        public IEnumerable<IEnumerable<Invoice>> GetOverdueCustomers(List<Customer> customerList)
+        {
+            var query = customerList
+                            .Select(c => c.InvoiceList
+                                            .Where(i => (i.IsPaid ?? false) == false)); // Return a List of List
+                                                                                        //
+                                                                                        //      Customer List
+                                                                                        //          Invoice List
+                                                                                        //              - IsPaid == null || IsPaid
+            return query;
+        }
+
+        public IEnumerable<Invoice> GetOverdueCustomers2(List<Customer> customerList)
+        {
+            var query = customerList
+                            .SelectMany(c => c.InvoiceList                                  // Flat the list to the inner list
+                                                .Where(i => (i.IsPaid ?? false) == false));
+            return query;
+        }
+
+        public IEnumerable<Customer> GetOverdueCustomersFinal(List<Customer> customerList)
+        {
+            var query = customerList
+                            .SelectMany(c => c.InvoiceList                                  // Flat the list to the inner list
+                                                .Where(i => (i.IsPaid ?? false) == false),
+                                                (c, i) => c                                 // Shape the result data
+                                            ).Distinct();                                   // The Result is drive by the inner data
+                                                                                            //      For each Invoice a Customer is displayed
+                                                                                            //          => Could have duplicates
             return query;
         }
     }

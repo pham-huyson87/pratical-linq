@@ -30,3 +30,6 @@ Debug
 /ACM.Library.Test/obj/Debug/*.pdb
 /ACM.Library.Test/obj/Debug/*.txt
 .vs/ACM/v14/.suo
+ACM.BL/bin/Debug/*.dll
+ACM.BL/bin/Debug/*.pdb
+

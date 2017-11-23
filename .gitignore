@@ -33,3 +33,6 @@ Debug
 ACM.BL/bin/Debug/*.dll
 ACM.BL/bin/Debug/*.pdb
 
+/ACM.BL.Test/obj/Debug/*.cache
+/ACM.BL.Test/obj/Debug/*.dll
+/ACM.BL.Test/obj/Debug/*.pdb

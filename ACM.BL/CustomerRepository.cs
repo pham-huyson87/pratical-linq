@@ -74,28 +74,28 @@ namespace ACM.BL
                             LastName = "Baggins",
                             EmailAddress = "fb@hob.me",
                             CustomerTypeId=1,
-                            InvoiceList = invoiceRepository.Retrieve(1)},
+                            InvoiceList = invoiceRepository.Retrieve()},
                     new Customer() 
                           { CustomerId = 2, 
                             FirstName="Bilbo",
                             LastName = "Baggins",
                             EmailAddress = "bb@hob.me",
                             CustomerTypeId=null,
-                            InvoiceList = invoiceRepository.Retrieve(2)},
+                            InvoiceList = invoiceRepository.Retrieve()},
                     new Customer() 
                           { CustomerId = 3, 
                             FirstName="Samwise",
                             LastName = "Gamgee",
                             EmailAddress = "sg@hob.me",
                             CustomerTypeId=1,
-                            InvoiceList = invoiceRepository.Retrieve(3)},
+                            InvoiceList = invoiceRepository.Retrieve()},
                     new Customer() 
                           { CustomerId = 4, 
                             FirstName="Rosie",
                             LastName = "Cotton",
                             EmailAddress = "rc@hob.me",
                             CustomerTypeId=2,
-                            InvoiceList = invoiceRepository.Retrieve(4)
+                            InvoiceList = invoiceRepository.Retrieve()
                     }
                 };
             return custList;

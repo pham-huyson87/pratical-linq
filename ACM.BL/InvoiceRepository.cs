@@ -103,5 +103,46 @@ namespace ACM.BL
         {
             return invoiceList.Sum(i => i.NumberOfUnits);
         }
+
+        public dynamic GetInvoiceTotalByIsPaid(List<Invoice> invoiceList)
+        {
+            var query = invoiceList
+                            .GroupBy(i => i.IsPaid ?? false,                     // keySelector :        key for grouping
+                                     i => i.TotalAmount,                         // elementSelector :    value to select
+                                     (groupKey, invoiceTotal) => new             // resultSelector :     shape of the result
+                                     {
+                                        Key = groupKey,
+                                        InvoicedAmount = invoiceTotal.Sum()
+                                     });
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Key + ": " + item.InvoicedAmount);
+            }
+
+            return query;
+        }
+
+        public dynamic GetInvoiceTotalByIsPaidAndMonth(List<Invoice> invoiceList)
+        {
+            var query = invoiceList
+                            .GroupBy(inv => new                                     // keySelectors
+                            {
+                                IsPaid = inv.IsPaid ?? false,
+                                InvoiceMonth = inv.InvoiceDate.ToString("MMMM")
+                            },
+                            inv => inv.TotalAmount,                                 // elementSelector
+                            (groupKey, invTotal) => new                             // resultSelector
+                            {
+                                Key = groupKey,
+                                InvoiceAmount = invTotal.Sum()
+                            });
+
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Key.IsPaid + "/" + item.Key.InvoiceMonth + ": " + item.InvoiceAmount);
+            }
+
+            return query;
+        }
     }
 }

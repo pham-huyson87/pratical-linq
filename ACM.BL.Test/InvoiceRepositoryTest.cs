@@ -35,5 +35,27 @@ namespace ACM.BL.Test
             // Assert
             Assert.AreEqual(136, actual);
         }
+
+        [TestMethod]
+        public void GetInvoiceTotalByIsPaidTest()
+        {
+            // Arrange
+            InvoiceRepository repository = new InvoiceRepository();
+            List<Invoice> invoiceList = repository.Retrieve();
+
+            // Act
+            repository.GetInvoiceTotalByIsPaid(invoiceList);
+        }
+
+        [TestMethod]
+        public void GetInvoiceTotalByIsPaidAndMonthTest()
+        {
+            // Arrange
+            InvoiceRepository repository = new InvoiceRepository();
+            List<Invoice> invoiceList = repository.Retrieve();
+
+            // Act
+            repository.GetInvoiceTotalByIsPaidAndMonth(invoiceList);
+        }
     }
 }

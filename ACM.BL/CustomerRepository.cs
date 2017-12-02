@@ -215,5 +215,36 @@ namespace ACM.BL
                                                                                             //          => Could have duplicates
             return query;
         }
+
+        public IEnumerable<KeyValuePair<string, decimal>> GetInvoiceTotalByCustomerType(List<Customer> customerList, List<CustomerType> customerTypeList)
+        {
+            var customerTypeQuery = customerList.Join(
+                        customerTypeList,                   // Outer list
+                        c => c.CustomerTypeId,              // Outer key selector
+                        ct => ct.CustomerTypeId,            // Inner key selector
+                        (c, ct) => new                      // Projection
+                        {
+                            CustomerInstance = c,
+                            CustomerTypeName = ct.TypeName
+                        });
+                        
+
+
+            var query = customerTypeQuery.GroupBy(
+                c => c.CustomerTypeName,                                                // Key selector 
+                c => c.CustomerInstance.InvoiceList.Sum(inv => inv.TotalAmount),        // Element selector
+                (groupKey, invTotal) => new KeyValuePair<string, decimal>               // Projection
+                (
+                    groupKey,
+                    invTotal.Sum()
+                ));
+
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Key + ": " + item.Value);
+            }
+
+            return query;
+        }
     }
 }
